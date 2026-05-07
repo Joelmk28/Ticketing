@@ -1,4 +1,4 @@
-package responses;
+package com.levraijmk.ticketing.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

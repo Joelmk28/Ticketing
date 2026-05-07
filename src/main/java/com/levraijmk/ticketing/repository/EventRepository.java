@@ -1,7 +1,6 @@
-package repository;
+package com.levraijmk.ticketing.repository;
 
-import entity.Event;
-import entity.Venue;
+import com.levraijmk.ticketing.entity.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

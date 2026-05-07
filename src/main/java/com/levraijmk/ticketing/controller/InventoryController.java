@@ -1,11 +1,10 @@
-package controller;
+package com.levraijmk.ticketing.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import responses.EventInventoryResponse;
-import responses.VenueInventoryResponse;
-import responses.VenueInventoryResponse;
-import service.InventoryService;
+import com.levraijmk.ticketing.responses.EventInventoryResponse;
+import com.levraijmk.ticketing.responses.VenueInventoryResponse;
+import com.levraijmk.ticketing.service.InventoryService;
 
 import java.util.List;
 
@@ -20,13 +19,12 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
-    @GetMapping("/inventory/events/")
+    @GetMapping("/inventory/events")
     public @ResponseBody List<EventInventoryResponse> inventoryGetAllEvents(){
-
         return this.inventoryService.getAllEvents();
     }
 
-    @GetMapping("inventory/venue/{venueId}")
+    @GetMapping("/inventory/venue/{venueId}")
     public @ResponseBody VenueInventoryResponse inventoryByVenueId(@PathVariable("venueId") Long venueId){
         return inventoryService.getVenueInformation(venueId);
     }

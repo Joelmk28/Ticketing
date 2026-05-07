@@ -1,6 +1,6 @@
-package responses;
+package com.levraijmk.ticketing.responses;
 
-import entity.Venue;
+import com.levraijmk.ticketing.entity.Venue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

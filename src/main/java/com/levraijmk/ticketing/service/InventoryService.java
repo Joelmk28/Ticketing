@@ -1,14 +1,13 @@
-package service;
+package com.levraijmk.ticketing.service;
 
-import entity.Event;
-import entity.Venue;
+import com.levraijmk.ticketing.entity.Event;
+import com.levraijmk.ticketing.entity.Venue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.EventRepository;
-import repository.VenueRepository;
-import responses.EventInventoryResponse;
-import responses.VenueInventoryResponse;
-import responses.VenueInventoryResponse;
+import com.levraijmk.ticketing.repository.EventRepository;
+import com.levraijmk.ticketing.repository.VenueRepository;
+import com.levraijmk.ticketing.responses.EventInventoryResponse;
+import com.levraijmk.ticketing.responses.VenueInventoryResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
