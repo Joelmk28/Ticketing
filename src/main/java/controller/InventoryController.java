@@ -3,7 +3,8 @@ package controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import responses.EventInventoryResponse;
-import responses.VenueInventoryReponse;
+import responses.VenueInventoryResponse;
+import responses.VenueInventoryResponse;
 import service.InventoryService;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class InventoryController {
     }
 
     @GetMapping("inventory/venue/{venueId}")
-    public @ResponseBody VenueInventoryReponse inventoryByVenueId(@PathVariable("venueId") Long venueId){
+    public @ResponseBody VenueInventoryResponse inventoryByVenueId(@PathVariable("venueId") Long venueId){
         return inventoryService.getVenueInformation(venueId);
     }
 }

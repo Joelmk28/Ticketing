@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 import repository.EventRepository;
 import repository.VenueRepository;
 import responses.EventInventoryResponse;
-import responses.VenueInventoryReponse;
+import responses.VenueInventoryResponse;
+import responses.VenueInventoryResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,9 +38,9 @@ public class InventoryService {
 
     }
 
-    public VenueInventoryReponse getVenueInformation(Long venueId) {
+    public VenueInventoryResponse getVenueInformation(Long venueId) {
         final Venue venue  = venueRepository.findById(venueId).orElse(null);
-        return VenueInventoryReponse.builder()
+        return VenueInventoryResponse.builder()
                 .VenueId(venue.getId())
                 .venueName(venue.getName())
                 .totalCapacity(venue.getTotalCapacity())
