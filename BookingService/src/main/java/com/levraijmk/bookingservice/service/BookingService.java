@@ -46,7 +46,6 @@ public class BookingService {
                 .userId(request.getUserId())
                 .eventId(request.getEventId())
 
-
                 .build();
     }
 }
