@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -22,6 +24,8 @@ public class Event {
     private long totalCapacity;
     @Column(name = "left_capacity")
     private long leftCapacity;
+
+    private BigDecimal ticketPrice;
 
 
     //Relation

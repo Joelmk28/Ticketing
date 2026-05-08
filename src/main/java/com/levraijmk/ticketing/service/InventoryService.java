@@ -29,6 +29,7 @@ public class InventoryService {
       final List<Event> events = eventRepository.findAll();
       return events.stream().map(
               event -> EventInventoryResponse.builder()
+                      .eventId(event.getId())
                       .event(event.getName())
                       .capacity(event.getLeftCapacity())
                       .venue(event.getVenue())
@@ -43,6 +44,20 @@ public class InventoryService {
                 .VenueId(venue.getId())
                 .venueName(venue.getName())
                 .totalCapacity(venue.getTotalCapacity())
+
+                .build();
+    }
+
+    public EventInventoryResponse getEventInformation(Long eventId) {
+      Event event = this.eventRepository.findById(eventId).orElse(null);
+        assert event != null;
+        return EventInventoryResponse.builder()
+                .eventId(eventId)
+                .event(event.getName())
+                .venue(event.getVenue())
+                .ticketPrice(event.getTicketPrice())
+                .capacity(event.getLeftCapacity())
+                .eventId(event.getId())
 
                 .build();
     }
