@@ -14,8 +14,6 @@ import java.math.BigDecimal;
 public class BookingResponse {
     private Long userId;
     private Long eventId;
-    private String bookingStatus;
-    private String bookingDate;
     private String event;
     private VenueResponse venue;
     private String ticketPrice;
