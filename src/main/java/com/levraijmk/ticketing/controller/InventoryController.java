@@ -1,6 +1,7 @@
 package com.levraijmk.ticketing.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.levraijmk.ticketing.responses.EventInventoryResponse;
 import com.levraijmk.ticketing.responses.VenueInventoryResponse;
@@ -32,5 +33,11 @@ public class InventoryController {
     @GetMapping("/inventory/events/{eventId}")
     public @ResponseBody EventInventoryResponse inventoryByEnventId(@PathVariable("eventId") Long eventId){
         return inventoryService.getEventInformation(eventId);
+    }
+
+    @PutMapping("/inventory/events/{eventId}/{capacity}")
+    public ResponseEntity<Void> updateEventCapacity(@PathVariable("eventId") Long eventId,@PathVariable("capacity") Long ticketsBooked ){
+        inventoryService.updateEventCapacity(eventId,ticketsBooked);
+        return ResponseEntity.ok().build();
     }
 }
