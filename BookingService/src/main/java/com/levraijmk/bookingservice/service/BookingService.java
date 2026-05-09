@@ -59,17 +59,17 @@ public class BookingService {
        }
 
        //creer une reservation
-        final BookingEvent bookingEvent = createBookingEvent(request,customer,inventoryResponse);
-
-       //envoyer la reservation au service de commande via le topic kafka
-        kafkaTemplate.send("booking",bookingEvent);
-        log.info("Booking sent to kafka: {} ", bookingEvent);
+     final BookingEvent bookingEvent = createBookingEvent(request,customer,inventoryResponse);
+//
+//       //envoyer la reservation au service de commande via le topic kafka
+       kafkaTemplate.send("booking",bookingEvent);
+        log.info("--- Booking sent to kafka: {} ", bookingEvent);
 
 
         return BookingResponse.builder()
                 .event(inventoryResponse.getEvent())
                 .ticketPrice(inventoryResponse.getTicketPrice().toString())
-                .totalPrice(bookingEvent.getTotalPrice())
+               .totalPrice(bookingEvent.getTotalPrice())
                 .venue(inventoryResponse.getVenue())
                 .userId(request.getUserId())
                 .eventId(request.getEventId())
