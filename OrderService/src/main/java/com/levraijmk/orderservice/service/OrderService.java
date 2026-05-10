@@ -1,6 +1,6 @@
 package com.levraijmk.orderservice.service;
 
-import com.levraijmk.orderservice.event.BookingEvent;
+import com.levraijmk.commonevents.event.BookingEvent;
 import com.levraijmk.orderservice.client.InventoryServiceClient;
 import com.levraijmk.orderservice.entity.Order;
 import com.levraijmk.orderservice.repository.OrderRepository;
