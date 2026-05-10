@@ -1,4 +1,4 @@
-package com.levraijmk.orderservice.Event;
+package com.levraijmk.orderservice.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,3 +17,4 @@ public class BookingEvent {
     private Long ticketCount;
     private BigDecimal totalPrice;
 }
+
