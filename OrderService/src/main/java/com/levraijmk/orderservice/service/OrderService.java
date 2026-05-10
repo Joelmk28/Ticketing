@@ -1,6 +1,7 @@
 package com.levraijmk.orderservice.service;
 
-import com.levraijmk.orderservice.Event.BookingEvent;
+import com.levraijmk.orderservice.event.BookingEvent;
+import com.levraijmk.orderservice.client.InventoryServiceClient;
 import com.levraijmk.orderservice.entity.Order;
 import com.levraijmk.orderservice.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -13,10 +14,12 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final InventoryServiceClient inventoryServiceClient;
 
      @Autowired
-    public OrderService(final OrderRepository orderRepository){
+    public OrderService(final OrderRepository orderRepository,final InventoryServiceClient inventoryServiceClient){
         this.orderRepository = orderRepository;
+        this.inventoryServiceClient = inventoryServiceClient;
     }
 
     //methode privé pour la creation de la commande
@@ -31,14 +34,26 @@ public class OrderService {
 
     @KafkaListener(topics = "booking",groupId = "order-service")
     public void orderEvent(BookingEvent bookingEvent){
-        log.info("Reception de la reservation {} ",bookingEvent);
+         try{
+             log.info("Reception de la reservation {} ",bookingEvent);
+             System.out.println("******Kafka Log : "+bookingEvent + "*******\n");
 
-        //Creation de la reservation dans la db
+             //Creation de la reservation dans la db
 
-        Order order = createOrder(bookingEvent);
-        orderRepository.saveAndFlush(order);
+             Order order = createOrder(bookingEvent);
+             orderRepository.save(order);
 
-        // Mettre à jour les inventaires
+             // Mettre à jour les inventaires
+
+             inventoryServiceClient.updateInventory(order.getEvent_id(),order.getTicketCount());
+
+             log.info("L'inventaire a été mise à jour");
+
+         }
+         catch (Exception ex){
+             System.out.println("******* Message d'exception "+ ex);
+         }
+
 
 
 
