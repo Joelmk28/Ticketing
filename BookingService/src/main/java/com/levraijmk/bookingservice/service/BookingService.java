@@ -2,7 +2,7 @@ package com.levraijmk.bookingservice.service;
 
 import com.levraijmk.bookingservice.client.InventoryServiceClient;
 import com.levraijmk.bookingservice.entity.Customer;
-import com.levraijmk.bookingservice.event.BookingEvent;
+import com.levraijmk.commonevents.event.BookingEvent;
 import com.levraijmk.bookingservice.repository.CustomerRepository;
 import com.levraijmk.bookingservice.request.BookingRequest;
 import com.levraijmk.bookingservice.response.BookingResponse;
