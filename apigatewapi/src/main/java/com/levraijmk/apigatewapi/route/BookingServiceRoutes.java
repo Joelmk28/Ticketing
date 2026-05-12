@@ -11,7 +11,7 @@ import org.springframework.web.servlet.function.*;
 
 import java.net.URI;
 
-
+import static org.springframework.cloud.gateway.server.mvc.filter.FilterFunctions.setPath;
 
 
 @Configuration
@@ -31,6 +31,7 @@ public class BookingServiceRoutes {
                 .build();
     }
 
+
     @Bean
     public RouterFunction<ServerResponse> fallbackRoute(){
         return GatewayRouterFunctions.route("fallbackRoute")
@@ -39,4 +40,17 @@ public class BookingServiceRoutes {
                         .body("Booking Service is down"))
                 .build();
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> bookingServiceApiDocs(){
+        return GatewayRouterFunctions.route("booking-service-api-docs")
+                .route(RequestPredicates.path("/docs/bookingservice/v3/api-docs"),
+                        HandlerFunctions.http()
+                )
+                .before(BeforeFilterFunctions.uri("http://localhost:9091"))
+                .filter(setPath("/v3/api-docs"))
+                .build();
+
+    }
+
 }
