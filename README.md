@@ -5,7 +5,7 @@
 ![Kafka](https://img.shields.io/badge/Apache_Kafka-Event--Driven-black?style=for-the-badge&logo=apache-kafka)
 ![Docker](https://img.shields.io/badge/Docker-Infrastructure-blue?style=for-the-badge&logo=docker)
 
-Bienvenue dans le projet **Ticketing System**, une architecture microservices moderne conçue pour la gestion de réservations et de commandes de billets. Ce système utilise une approche orientée événements (EDA) pour garantir scalabilité et robustesse.
+Bienvenue dans le projet **Ticketing System**, une architecture microservices moderne conçue pour la gestion de réservations et de commandes de billets. Ce système utilise une approche orientée événements (EDA) pour garantir scalabilité et robustesse. Il est important des signaler que toutes les bonnes pratiques n'ont pas été revues pour les fonctionalités metiers car l'essentiel de pratiquer le ms.
 
 ---
 
