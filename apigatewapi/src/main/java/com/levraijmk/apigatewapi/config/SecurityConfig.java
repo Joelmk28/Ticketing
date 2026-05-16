@@ -29,13 +29,9 @@ public class SecurityConfig {
                 .oauth2ResourceServer(oauth->oauth.jwt(Customizer.withDefaults()))
                 .build();
     }
-
-
     @Bean
     public JwtDecoder jwtDecoder(){
         return NimbusJwtDecoder.withJwkSetUri(jwtSetUri).build();
     }
-
-
 
 }
